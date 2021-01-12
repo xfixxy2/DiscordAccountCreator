@@ -240,7 +240,7 @@ def register(email, username, password, proxy, conf):
         debug(response.json(), conf)
         token = response.json()['token']
         file = open('token_gen.txt', 'a')
-        file.writelines(token + '\n')
+        file.write(token + '\n')
         file.close()
         try:
             _info = get_info(token)
@@ -249,7 +249,7 @@ def register(email, username, password, proxy, conf):
 
             file2 = open('accounts.txt', 'a')
             _datam = f"\nMail: {email}\nUsername: {username}\nDiscriminator: {_discriminator}\nID: {_id}\nPassword: {password}\nToken: {token}\n\n\n"
-            file2.writelines(_datam)
+            file2.write(_datam)
             file2.close()
         except:
             pass
